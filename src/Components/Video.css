@@ -1,0 +1,40 @@
+.float-video {
+  float: initial;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 240;
+  background-color: rgba(228, 228, 228, 0.582);
+}
+.video {
+  position: relative;
+  width: 90%; /*
+    height: 74%;
+    top: 10%;
+    left: 5%;*/
+
+  height: auto;
+  max-height: 90vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0%;
+  z-index: 250;
+}
+.video iframe {
+  height: 80vh;
+}
+.close-video {
+  position: absolute;
+  color: rgb(51, 2, 2);
+  background-color: transparent;
+  margin: 0px;
+  top: -34px;
+  right: 0px;
+  z-index: 300;
+}
+.close-video:hover ~ .float-video {
+  background-color: rgb(0, 136, 255);
+}

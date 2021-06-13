@@ -1,0 +1,72 @@
+.card {
+  margin: 15px;
+}
+.card_front {
+  width: 162px;
+  height: 250px;
+}
+
+.card_back {
+  width: 162px;
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  --webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backface-visibility: visible;
+}
+
+.card_title {
+  position: relative;
+  top: 0;
+  text-align: center;
+  margin: 0 5px;
+  font-size: 23px;
+}
+/*
+.overview {
+  position: absolute;
+  top: 30px;
+  margin: 0 5px;
+  font-size: 5px;
+  overflow-y: scroll;
+  height: 60%;
+  width: 90%;
+}*/
+.bttn {
+  color: aliceblue;
+  background-color: #aa0017;
+  text-align: center;
+  font-size: 0.5rem;
+  width: 40%;
+  height: 35px;
+  margin: 10px;
+  padding: 0;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  z-index: 6;
+}
+.bttn.l {
+  left: 0;
+}
+.bttn.r {
+  right: 0;
+}
+
+.poster {
+  background-color: black;
+  cursor: pointer;
+  height: 250px;
+  width: 162px;
+  max-width: 162px;
+  max-height: 250px;
+  margin-right: 0px;
+}
+@media only screen and (max-width: 350px) {
+  .poster {
+    height: 250px;
+    width: auto;
+  }
+}

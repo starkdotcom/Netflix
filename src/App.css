@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+body {
+  background-color: black;
+}
+.App {
+  font-family: "Quicksand", sans-serif;
+  background-color: black;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-content: stretch;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-height: 100vh;
+}
+.post {
+  margin-top: 10px;
+  position: relative;
+  top: 0;
+}
+
+@media only screen and (max-width: 500px) {
+  .post {
+    top: 105px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .post {
+    top: 160px;
+  }
+}

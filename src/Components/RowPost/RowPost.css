@@ -1,0 +1,28 @@
+.row {
+  margin: 10px 20px 0 20px;
+  color: aliceblue;
+}
+.posters {
+  display: flex;
+  padding: 20px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+h2.rowTitle {
+  position: relative;
+  top: 20px;
+  margin-bottom: 1.6rem;
+  font-size: 2rem;
+  color: aliceblue;
+}
+.posters::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (max-width: 350px) {
+  .rowTitle {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0.2rem;
+  }
+}

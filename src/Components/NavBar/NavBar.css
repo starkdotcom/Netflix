@@ -1,0 +1,401 @@
+.navbar {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  padding: 10px; /*
+  background-color: #111;*/
+  display: flex;
+
+  align-content: space-between;
+  justify-content: space-between;
+  z-index: 100;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(61, 58, 58, 0.39),
+    transparent
+  );
+}
+ul {
+  list-style: none;
+  display: flex;
+
+  align-items: flex-start;
+}
+
+.navElement {
+  margin: 0 10px;
+  position: relative;
+  margin: 0.1rem 0.8rem;
+}
+.navElement.user {
+  position: absolute;
+  right: 20px;
+  margin-right: auto;
+}
+a {
+  text-decoration: none;
+  color: aliceblue;
+}
+.logo {
+  /*position: fixed;
+    left: 20px;*/
+  width: 80px;
+}
+.avatar {
+  width: 20px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+}
+.navElement.search {
+  max-width: 250px;
+}
+.input-group {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  width: 100%;
+  align-items: center;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+}
+.form-outline {
+  position: relative;
+  border: 0;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.form-outline .form-control {
+  color: azure;
+  min-height: auto;
+  padding: 0.33em 0.75em;
+  border: 0;
+  background: #0000006b;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+INPUT:not(:-webkit-autofill),
+SELECT:not(:-webkit-autofill),
+TEXTAREA:not(:-webkit-autofill) {
+  animation-name: onautofillcancel;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #ffffff;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgb(255, 255, 255);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+  font-weight: 500;
+  padding: 0.6rem 1rem 0.3rem;
+}
+input.form-control::placeholder {
+  color: rgb(206, 199, 199);
+  opacity: 1;
+}
+[type="search"] {
+  outline-offset: -2px;
+  -webkit-appearance: textfield;
+}
+
+.form-outline .form-control ~ .form-label {
+  position: absolute;
+  top: 0;
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  left: 0.75rem;
+  padding-top: 0.37rem;
+  pointer-events: none;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 0;
+}
+label {
+  display: inline-block;
+}
+.form-outline .form-control ~ .form-notch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  text-align: left;
+  pointer-events: none;
+}
+.form-outline .form-control ~ .form-notch .form-notch-leading {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0.5rem;
+  border-right: none;
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+.form-outline .form-control ~ .form-notch div {
+  pointer-events: none;
+  border: 1px solid #bdbdbd;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #0000006b;
+}
+.form-outline .form-control ~ .form-notch .form-notch-middle {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: calc(100% - 1rem);
+  height: 100%;
+  border-right: none;
+  border-left: none;
+}
+
+.form-outline .form-control ~ .form-notch div {
+  pointer-events: none;
+  border: 1px solid #bdbdbd;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: transparent;
+}
+.input-group .form-outline:not(:last-child),
+.input-group .form-outline:not(:last-child) .form-notch-trailing {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+.form-outline .form-control ~ .form-notch .form-notch-trailing {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  height: 100%;
+  border-left: none;
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+.form-outline .form-control ~ .form-notch div {
+  pointer-events: none;
+  border: 1px solid #ffffff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.input-group
+  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: 0px;
+  border-radius: 7px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.input-group > .btn {
+  padding-top: 0.59rem;
+}
+.input-group .btn {
+  position: relative;
+  z-index: 2;
+}
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+.ripple-surface {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.btn-primary {
+  color: #fff;
+
+  border: 1px solid white;
+  background-color: #aa0017;
+}
+button {
+  border: 1px solid white;
+}
+.btn {
+  text-transform: uppercase;
+  vertical-align: bottom;
+  border: 0;
+  -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%),
+    0 2px 10px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+  font-weight: 500;
+  padding: 0.6rem 1rem 0.3rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  border: 1px solid white;
+}
+.btn-primary {
+  border-color: #ffffff;
+}
+.searchResult {
+  color: aliceblue;
+  position: absolute;
+  background-color: grey;
+  border-radius: 0px 20px 0px 20px;
+  width: 100%;
+  height: auto;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(12px);
+  --webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.searchResult div span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  float: left;
+  margin: 15px;
+  margin-right: 0;
+  width: 140px;
+  height: 90px;
+  overflow: hidden;
+  color: black;
+  font-size: 1.3rem;
+}
+.searchResult div img {
+  margin: 10px;
+  float: right;
+  margin-right: 25px;
+  height: 90px;
+  width: auto;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10;
+}
+
+@media only screen and (min-width: 350px) and (max-width: 500px) {
+  .navbar {
+    height: 105px;
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .logo {
+    width: 100px;
+  }
+  .navElement {
+    margin: 0.1rem 0.6rem;
+  }
+  .avatar {
+    width: 25px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+  }
+  .navElement.a a {
+    font-size: 24px;
+  }
+  .navElement.search {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    max-width: 94%;
+  }
+  .form-outline .form-control {
+    padding: 0.48em 2.5em;
+  }
+  .searchResult div span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 15px;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  .searchResult div img {
+    height: 130px;
+    width: auto;
+    margin-right: 60px;
+    float: right;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+  }
+}
+@media only screen and (max-width: 350px) {
+  /*.navElement.a {
+    margin: 10px;
+    position: relative;
+    left: -100px;
+    top: 25px;
+    width: 50vw;
+  }*/
+  .navbar {
+    width: 100%;
+    height: 90px;
+  }
+  .navElement.netflix {
+    position: absolute;
+    top: 10px;
+    left: 0;
+  }
+  .navElement.user {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+  .navElement.tv {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+  }
+  .navElement.movie {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+  }
+  .navElement.search {
+    position: absolute;
+    top: 90px;
+    width: 94vw;
+    margin: 0;
+    max-width: 95%;
+  }
+  .form-outline .form-control {
+    padding: 0.35em 2.5em;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  * {
+    font-size: 1rem;
+  }
+  .logo {
+    width: 5rem;
+  }
+  .navElement a {
+    font-size: 1.5rem;
+  }
+  .navElement {
+    margin: 0.1rem 0.8rem;
+  }
+  .navbar {
+    height: max-content;
+  }
+  .avatar {
+    width: 1.5rem;
+
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+  }
+}

@@ -1,0 +1,12 @@
+export const baseUrl = "https://api.themoviedb.org/3/";
+export const API_KEY = "api_key=a16f75b2ad11198ee57fcf54e8034a06";
+export const img500 = "https://image.tmdb.org/t/p/w500";
+export const trending = `trending/all/week?${API_KEY}&language=en-US`;
+export const trendingTv = `trending/tv/week?${API_KEY}&language=en-US`;
+export const trendingMovies = `trending/movie/week?${API_KEY}&language=en-US`;
+export const orginalsTvUrl = `discover/tv?${API_KEY}&with_network=213`;
+export const actionMoviesUrl = `discover/movie?${API_KEY}&with_genres=28`;
+export const language = "&language=en-US";
+export const discover = `https://api.themoviedb.org/3/discover/movie?${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
+export const trailer = `/videos?${API_KEY}&language=en-US`;
+export const searchUrl = `https://api.themoviedb.org/3/search/multi?${API_KEY}&language=en-US&page=1&include_adult=false`;
