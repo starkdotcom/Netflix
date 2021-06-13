@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import { Switch } from "react-router";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import { AppContext } from "./Components/AppContext";
 import NavBar from "./Components/NavBar/NavBar";
 import { trailer } from "./Config/constants";
