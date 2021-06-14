@@ -28,9 +28,7 @@ function Banner() {
   useEffect(() => {
     axios.get(`${trending}`).then((res) => {
       let rndNum = getRandomIntInclusive(0, 19);
-      console.log("random Number:", rndNum);
       setMovie(res.data.results[rndNum]);
-      console.table(res.data.results[rndNum]);
     });
   }, []);
   return (

@@ -29,7 +29,7 @@ function App() {
       } else {
         if (res.data.success === false) {
         }
-        setVideoId(null, console.log("null:", videoId));
+        setVideoId(null);
       }
     });
   };
@@ -55,7 +55,6 @@ function App() {
             <Route component={Movies} exact path="/movies" />
 
             <Route exact path={"/search"}>
-              {console.log("Search Query")}
               <Result value={providerValue} />
             </Route>
             <Route exact path="/">

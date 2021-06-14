@@ -12,7 +12,6 @@ function RowPost(props) {
   useEffect(() => {
     axios.get(props.url).then((res) => {
       setData(res.data.results);
-      console.table("Result", res.data.results);
     });
   }, [props.url]);
 
