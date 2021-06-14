@@ -102,7 +102,7 @@ export default function NavBar() {
               className="btn btn-primary ripple-surface"
             >
               <img
-                src="/magnifying-glass.png"
+                src="./magnifying-glass.png"
                 alt="search"
                 width="20"
                 height="20"
