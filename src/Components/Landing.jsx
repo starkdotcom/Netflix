@@ -4,7 +4,6 @@ import RowPost from "./RowPost/RowPost";
 import { trending, orginalsTvUrl, actionMoviesUrl } from "../Config/constants";
 import { AppContext } from "./AppContext";
 import { Video } from "./Video";
-import "./Landing.css";
 function Landing() {
   const { videoId, setVideoId, opts } = useContext(AppContext);
 

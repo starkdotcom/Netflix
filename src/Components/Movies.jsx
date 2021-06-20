@@ -9,17 +9,14 @@ function Movies() {
   return (
     <div>
       <Banner />
-      {videoId !== null
-        ? (console.log(videoId),
-          (
-            <Video
-              className=""
-              videoId={videoId}
-              setVideoId={setVideoId}
-              opts={opts}
-            />
-          ))
-        : console.log("video id", videoId)}
+      {videoId !== null ? (
+        <Video
+          className=""
+          videoId={videoId}
+          setVideoId={setVideoId}
+          opts={opts}
+        />
+      ) : null}
       <div className="post">
         <RowPost title="Trending" url={trendingMovies} />
         <RowPost title="Action" url={actionMoviesUrl} />

@@ -1,19 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { img500 } from "../../Config/constants";
 import "./RowPost.css";
 import "./card.css";
+import { AppContext } from "../AppContext";
+import { useHistory } from "react-router-dom";
 import ReactCardFlip from "react-card-flip";
 
 function Card({ obj, i, handleTrailer }) {
   const [isFlipped, setIsFlipped] = useState(false);
+  const { setDetail } = useContext(AppContext);
   const name = obj.name || obj.title || obj.orginal_title || obj.orginal_name;
+  const history = useHistory();
+  const handleMore = (id, show) => {
+    setDetail(null);
+    history.push(`/search?id=${id}&query=${null}&show=${show}`);
+  };
   return (
     <div className="card">
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
         <div
-          onMouseEnter={() => setIsFlipped((prev) => !prev)}
+          onMouseEnter={() => setIsFlipped(true)}
           onTouchStart={() => {
-            setIsFlipped((prev) => !prev);
+            setIsFlipped(true);
           }}
           className="card_front"
         >
@@ -34,9 +42,9 @@ function Card({ obj, i, handleTrailer }) {
         >
           <div
             onTouchEnd={() => {
-              setIsFlipped((prev) => !prev);
+              setIsFlipped(false);
             }}
-            onMouseLeave={() => setIsFlipped((prev) => !prev)}
+            onMouseLeave={() => setIsFlipped(false)}
             className="card_back"
           >
             <div className="card_title">{name}</div>
@@ -48,7 +56,15 @@ function Card({ obj, i, handleTrailer }) {
             >
               Play
             </button>
-            <button className="bttn r">Save</button>
+
+            <button
+              onClick={() => {
+                handleMore(obj.id, obj.media_type);
+              }}
+              className="bttn r"
+            >
+              More
+            </button>
           </div>
         </div>
       </ReactCardFlip>

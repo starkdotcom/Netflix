@@ -1,11 +1,9 @@
 .navbar {
   position: absolute;
   width: 100%;
-  height: 40px;
-  padding: 10px; /*
-  background-color: #111;*/
+  height: 60px;
+  padding: 10px;
   display: flex;
-
   align-content: space-between;
   justify-content: space-between;
   z-index: 100;
@@ -17,10 +15,12 @@
   );
 }
 ul {
+  width: -webkit-fill-available;
   list-style: none;
   display: flex;
-
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .navElement {
@@ -29,17 +29,15 @@ ul {
   margin: 0.1rem 0.8rem;
 }
 .navElement.user {
-  position: absolute;
-  right: 20px;
-  margin-right: auto;
+  position: relative;
+  right: 3px;
+  margin-left: auto;
 }
 a {
   text-decoration: none;
   color: aliceblue;
 }
 .logo {
-  /*position: fixed;
-    left: 20px;*/
   width: 80px;
 }
 .avatar {
@@ -57,6 +55,7 @@ a {
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   width: 100%;
+  height: 40px;
   align-items: center;
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
@@ -259,7 +258,7 @@ button {
   width: 100%;
   height: auto;
   background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(220, 220, 228, 0.37);
   backdrop-filter: blur(12px);
   --webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -272,7 +271,8 @@ button {
   margin: 15px;
   margin-right: 0;
   width: 140px;
-  height: 90px;
+  min-height: 90px;
+  height: max-content;
   overflow: hidden;
   color: black;
   font-size: 1.3rem;
@@ -285,15 +285,25 @@ button {
   width: auto;
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10;
 }
-
+.input-group,
+.form-outline,
+.form-control,
+.input-group button {
+  height: 40px;
+}
 @media only screen and (min-width: 350px) and (max-width: 500px) {
   .navbar {
     height: 105px;
+    position: relative;
+    top: 0;
+    left: 0;
   }
   ul {
     display: flex;
     flex-direction: row;
     width: 100%;
+    align-content: flex-start;
+    flex-wrap: wrap;
   }
   .logo {
     width: 100px;
@@ -316,7 +326,9 @@ button {
   }
   .form-outline .form-control {
     padding: 0.48em 2.5em;
+    height: 50px;
   }
+
   .searchResult div span {
     position: absolute;
     top: 50%;
@@ -332,19 +344,38 @@ button {
     float: right;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
   }
+  .input-group,
+  .form-outline,
+  .input-group button {
+    height: 50px;
+    width: -webkit-fill-available;
+  }
+  .input-group button {
+    width: 20%;
+  }
 }
+
+@media only screen and (max-width: 420px) {
+  .logo {
+    width: 80px;
+  }
+  .navElement {
+    margin: 0.1rem 0.3rem;
+  }
+  .navElement.a {
+    font-size: 20px;
+  }
+}
+
 @media only screen and (max-width: 350px) {
-  /*.navElement.a {
-    margin: 10px;
-    position: relative;
-    left: -100px;
-    top: 25px;
-    width: 50vw;
-  }*/
   .navbar {
     width: 100%;
     height: 90px;
+    position: relative;
+    top: 0;
+    left: 0;
   }
+
   .navElement.netflix {
     position: absolute;
     top: 10px;
@@ -375,6 +406,12 @@ button {
   .form-outline .form-control {
     padding: 0.35em 2.5em;
   }
+  .input-group,
+  .form-outline,
+  .form-control,
+  .input-group button {
+    height: 40px;
+  }
 }
 
 @media only screen and (min-width: 900px) {
@@ -390,12 +427,14 @@ button {
   .navElement {
     margin: 0.1rem 0.8rem;
   }
+  .navElement.user {
+    right: 10px;
+  }
   .navbar {
-    height: max-content;
+    height: 60px;
   }
   .avatar {
     width: 1.5rem;
-
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
   }
 }

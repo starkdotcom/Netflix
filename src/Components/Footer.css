@@ -1,0 +1,29 @@
+.footer {
+  margin-top: 20px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 40px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  box-shadow: 0 8px 70px 4px rgba(221, 238, 235, 0.37);
+  backdrop-filter: blur(12px);
+  --webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.37);
+}
+.footer-content {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-family: monospace;
+}
+
+@media only screen and (max-width: 350px) {
+  .footer {
+    top: 70px;
+  }
+}

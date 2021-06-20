@@ -1,4 +1,5 @@
 import axios from "../../Axios";
+import { useHistory } from "react-router-dom";
 import React, { useEffect, useState, useContext } from "react";
 import { img500, trending } from "../../Config/constants";
 import { AppContext } from "../AppContext";
@@ -11,26 +12,22 @@ function getRandomIntInclusive(min, max) {
 }
 
 function Banner() {
-  const { handleTrailer } = useContext(AppContext);
+  const { handleTrailer, setDetail } = useContext(AppContext);
   const [movie, setMovie] = useState([]);
-  /*const path='https://api.themoviedb.org/3/'
-    const apiKey='api_key=a16f75b2ad11198ee57fcf54e8034a06'
-    const img500='https://image.tmdb.org/t/p/w500'*/
-  // const imgOrg='https://image.tmdb.org/t/p/orginal'/*
-  //let [imgUrl,setUrl]=useState("")
-  /* function getBanner(){
-        /*axios.get(path+'tv/popular?'+apiKey+'&language=en-US&page=1').then((res)=>{
-        setMovie(res.data.results[0])
-        setUrl(img500+movie.backdrop_path)
-        console.table(movie)
-     })
-    }*/
   useEffect(() => {
     axios.get(`${trending}`).then((res) => {
       let rndNum = getRandomIntInclusive(0, 19);
       setMovie(res.data.results[rndNum]);
     });
   }, []);
+
+  const name =
+    movie.name || movie.title || movie.orginal_title || movie.orginal_name;
+  const history = useHistory();
+  const handleMore = (id, show) => {
+    setDetail(null);
+    history.push(`/search?id=${id}&query=${null}&show=${show}`);
+  };
   return (
     <div
       className="banner"
@@ -41,7 +38,25 @@ function Banner() {
       }}
     >
       <div className="content">
-        <h2 className="title">{movie ? movie.title : null}</h2>
+        <h2
+          className="title"
+          style={{
+            fontSize: name
+              ? name.length > 18
+                ? "1rem"
+                : name.length > 8
+                ? "1.8rem"
+                : "2.8rem"
+              : "2rem",
+          }}
+        >
+          {movie
+            ? movie.name ||
+              movie.title ||
+              movie.orginal_title ||
+              movie.orginal_name
+            : null}
+        </h2>
         <div className="bannerButtons">
           <button
             onClick={() => handleTrailer(movie.id)}
@@ -49,7 +64,16 @@ function Banner() {
           >
             Play
           </button>
-          <button className="button list">My List</button>
+
+          <button
+            type="button"
+            className="button list"
+            onClick={() =>
+              movie ? handleMore(movie.id, movie.media_type) : null
+            }
+          >
+            More
+          </button>
         </div>
         <h3 className="description">{movie ? movie.overview : null}</h3>
       </div>

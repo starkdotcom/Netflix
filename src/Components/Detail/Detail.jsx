@@ -7,27 +7,51 @@ import "./Detail.css";
 
 function Detail({ searchId, show }) {
   const { detail, setDetail } = useContext(AppContext);
-  //const searchTerm =  detail.name || detail.title || detail.orginal_title || detail.orginal_name||;
-  //
   useEffect(() => {
-    console.log("Detail:", detail, `${show}/${searchId}?${API_KEY}${language}`);
     if (detail === null || detail === undefined) {
-      axios.get(`${show}/${searchId}?${API_KEY}${language}`).then((res) => {
-        setDetail(res.data);
-        console.table("Result", res.data);
-      });
+      axios
+        .get(`${show}/${searchId}?${API_KEY}${language}`)
+        .then((res) => {
+          setDetail(res.data);
+        })
+        .catch(() => {
+          if (show === "undefined")
+            axios
+              .get(`tv/${searchId}?${API_KEY}${language}`)
+              .then((res) => {
+                setDetail(res.data);
+              })
+              .catch(() => {
+                axios
+                  .get(`movie/${searchId}?${API_KEY}${language}`)
+                  .then((res) => {
+                    setDetail(res.data);
+                  });
+              });
+        });
     }
   });
 
   const searchTerm = detail
     ? detail.name || detail.title || detail.orginal_title || detail.orginal_name
     : null;
-  console.log(detail);
+
   return (
-    <div style={{ background: "black", height: "100%" }}>
+    <div className="detail">
       <div className="contentDetail">
-        <div className="left">
-          <div className="titleDetail">
+        <div className="md left">
+          <div
+            className="md titleDetail"
+            style={{
+              fontSize: searchTerm
+                ? searchTerm.length > 17
+                  ? "1.5rem"
+                  : searchTerm.length > 8
+                  ? "2rem"
+                  : "2.8rem"
+                : "2rem",
+            }}
+          >
             {detail
               ? detail.name ||
                 detail.title ||
@@ -35,20 +59,55 @@ function Detail({ searchId, show }) {
                 detail.orginal_name
               : null}
           </div>
-          <div className="overviewDetail">
+          <div className="md overviewDetail">
             {detail ? detail.overview : null}
           </div>
         </div>
-        <div className="right">
+        <div className="md right">
           <div>
             <img
-              className="posterImage"
+              className="posterImage md "
               src={detail ? img500 + detail.poster_path : null}
               alt=""
             />
           </div>
         </div>
+
+        <div className="sm top">
+          <div>
+            <img
+              className="sm posterImage"
+              src={detail ? img500 + detail.poster_path : null}
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="sm bottom">
+          <div
+            className="sm titleDetail"
+            style={{
+              fontSize: searchTerm
+                ? searchTerm.length > 17
+                  ? "1.5rem"
+                  : searchTerm.length > 8
+                  ? "2rem"
+                  : "2.8rem"
+                : "2rem",
+            }}
+          >
+            {detail
+              ? detail.name ||
+                detail.title ||
+                detail.orginal_title ||
+                detail.orginal_name
+              : null}
+          </div>
+          <div className="sm overviewDetail">
+            {detail ? detail.overview : null}
+          </div>
+        </div>
       </div>
+
       <div className="postDetail">
         {
           <RowPost

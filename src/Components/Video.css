@@ -14,8 +14,8 @@
     height: 74%;
     top: 10%;
     left: 5%;*/
-
-  height: auto;
+  background-color: black;
+  height: 80vh;
   max-height: 90vh;
   top: 50%;
   left: 50%;
@@ -31,9 +31,14 @@
   color: rgb(51, 2, 2);
   background-color: transparent;
   margin: 0px;
-  top: -34px;
+  top: -40px;
   right: 0px;
   z-index: 300;
+}
+button.close-video.btn {
+  padding: 0.7rem;
+  line-height: 1;
+  height: 40px;
 }
 .close-video:hover ~ .float-video {
   background-color: rgb(0, 136, 255);

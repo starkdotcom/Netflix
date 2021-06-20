@@ -7,7 +7,7 @@ export const Video = ({ videoId, setVideoId, opts }) => {
         <button onClick={() => setVideoId(null)} className="btn close-video">
           Close X
         </button>
-        <YouTube class={"video"} videoId={videoId} opts={opts} />
+        <YouTube videoId={videoId} opts={opts} />
       </div>
     </div>
   );

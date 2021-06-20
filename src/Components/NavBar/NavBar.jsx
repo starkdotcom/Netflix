@@ -7,13 +7,18 @@ import { AppContext } from "../AppContext";
 export default function NavBar() {
   const history = useHistory();
   const [searchTerm, setSearchTerm] = useState("");
+
   const handleSubmit = useCallback(() => {
     history.push(`/search?query=${searchTerm}&id=${null}&show=${null}`);
     setSearchTerm("");
   }, [history, searchTerm]);
   const [searchResult, setSearchResult] = useState([]);
   const { setDetail } = useContext(AppContext);
-
+  const name =
+    searchResult.name ||
+    searchResult.title ||
+    searchResult.orginal_title ||
+    searchResult.orginal_name;
   useEffect(() => {
     dynamicSearch(setSearchResult);
   }, [searchTerm]);
@@ -98,15 +103,10 @@ export default function NavBar() {
             </div>
             <button
               type="button"
-              onClick={handleSubmit}
+              onClick={searchTerm !== "" ? () => handleSubmit() : null}
               className="btn btn-primary ripple-surface"
             >
-              <img
-                src="./magnifying-glass.png"
-                alt="search"
-                width="20"
-                height="20"
-              />
+              <img src="/magnifying-glass.png" alt="" width="20" height="20" />
             </button>
           </div>
 
@@ -125,7 +125,9 @@ export default function NavBar() {
                     setSearchTerm("");
                   }}
                 >
-                  <span>
+                  <span
+                    style={{ fontSize: name.length > 8 ? "1rem" : "1.8rem" }}
+                  >
                     {searchResult.name ||
                       searchResult.title ||
                       searchResult.orginal_title ||

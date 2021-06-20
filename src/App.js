@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import { Switch } from "react-router";
-import { HashRouter as Router, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { AppContext } from "./Components/AppContext";
 import NavBar from "./Components/NavBar/NavBar";
 import { trailer } from "./Config/constants";
@@ -9,6 +9,7 @@ import axios from "./Axios";
 import Landing from "./Components/Landing";
 import TvShows from "./Components/TvShows";
 import Movies from "./Components/Movies";
+import Footer from "./Components/Footer";
 import Result from "./Components/SearchResult/Result";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       autoplay: 1,
     },
   };
+
   const handleTrailer = (id) => {
     axios.get(`movie/${id}` + trailer).then((res) => {
       if (res.data.results.length !== 0) {
@@ -44,27 +46,26 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <AppContext.Provider value={providerValue}>
-          <NavBar value={providerValue} />
+      <AppContext.Provider value={providerValue}>
+        <NavBar value={providerValue} />
+        <Switch>
+          <Route exact path="/tvshows">
+            <TvShows />
+          </Route>
+          <Route component={Movies} exact path="/movies" />
 
-          <Switch>
-            <Route exact path="/tvshows">
-              <TvShows />
-            </Route>
-            <Route component={Movies} exact path="/movies" />
+          <Route exact path={"/search"}>
+            <Result value={providerValue} />
+          </Route>
+          <Route exact path="/">
+            {/* <AnotherComponent /> */}
+            <Landing />
+          </Route>
+          {/*<Route exactly component={screen} path="/screen" />*/}
+        </Switch>
+      </AppContext.Provider>
 
-            <Route exact path={"/search"}>
-              <Result value={providerValue} />
-            </Route>
-            <Route exact path="/">
-              {/* <AnotherComponent /> */}
-              <Landing />
-            </Route>
-            {/*<Route exactly component={screen} path="/screen" />*/}
-          </Switch>
-        </AppContext.Provider>
-      </Router>
+      <Footer />
     </div>
   );
 }
