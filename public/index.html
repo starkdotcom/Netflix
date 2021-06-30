@@ -2,29 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="https://starkdotcom.github.io/Netflix/logo.png" />
+    <link rel="icon" href="https://starkdotcom.github.io/Netflix/logo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <meta name="theme-color" content="#d91921" />
+    <meta name="description" content="Netflix like UI" />
     <link
       rel="apple-touch-icon"
-      href="https://starkdotcom.github.io/Netflix/logo.png"
+      href="https://starkdotcom.github.io/Netflix/icon512.png"
     />
     <link
       rel="manifest"
       href="https://starkdotcom.github.io/Netflix/manifest.json"
     />
-    <!-- Latest compiled and minified CSS -->
 
     <title>Netflix</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("worker.js")
+            .then(
+              function (registration) {
+                console.log(
+                  "Worker registration successful",
+                  registration.scope
+                );
+              },
+              function (err) {
+                console.log("Worker registration failed", err);
+              }
+            )
+            .catch(function (err) {
+              console.log(err);
+            });
+        });
+      } else {
+        console.log("Service Worker is not supported by browser.");
+      }
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </body>
 </html>

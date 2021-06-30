@@ -106,7 +106,7 @@ export default function NavBar() {
               onClick={searchTerm !== "" ? () => handleSubmit() : null}
               className="btn btn-primary ripple-surface"
             >
-              <img src="/magnifying-glass.png" alt="" width="20" height="20" />
+              <img src="magnifying-glass.png" alt="" width="20" height="20" />
             </button>
           </div>
 
