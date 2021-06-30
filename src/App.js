@@ -54,7 +54,7 @@ function App() {
           </Route>
           <Route component={Movies} exact path="/movies" />
 
-          <Route exact path={"/search"}>
+          <Route exact path="/search">
             <Result value={providerValue} />
           </Route>
           <Route exact path="/">
