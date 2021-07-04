@@ -1,5 +1,5 @@
 export const baseUrl = "https://api.themoviedb.org/3/";
-export const API_KEY = "api_key=a16f75b2ad11198ee57fcf54e8034a06";
+export const API_KEY = #TMDB_API_KEY
 export const img500 = "https://image.tmdb.org/t/p/w500";
 export const trending = `trending/all/week?${API_KEY}&language=en-US`;
 export const trendingTv = `trending/tv/week?${API_KEY}&language=en-US`;
