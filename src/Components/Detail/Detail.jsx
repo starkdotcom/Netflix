@@ -60,7 +60,43 @@ function Detail({ searchId, show }) {
               : null}
           </div>
           <div className="md overviewDetail">
-            {detail ? detail.overview : null}
+            {detail ? (
+              <div>
+                {detail.tagline ? <h3>{detail.tagline}</h3> : null}
+                <i className="badge">{detail.adult ? "A" : "U/A"}</i>
+                {detail.genres
+                  ? detail.genres.map((a) => {
+                      return <span className="badge">{a.name}</span>;
+                    })
+                  : null}
+                {detail.vote_average ? (
+                  <i className="badge">⭐{detail.vote_average}</i>
+                ) : null}
+
+                <p className="about"> {detail.overview}</p>
+                <hr />
+                <p>
+                  {detail.languages
+                    ? `Languages : ` +
+                      detail.languages.map((a) => {
+                        return " " + a;
+                      })
+                    : detail.original_language
+                    ? `Language : ` + detail.original_language
+                    : null}
+                </p>
+                <p>
+                  {detail.release_date
+                    ? `Release Date :      ` + detail.release_date
+                    : `First Aired On :    ` + detail.first_air_date}
+                </p>
+                <p>
+                  {detail.number_of_seasons
+                    ? `Number of Seasons : ` + detail.number_of_seasons
+                    : null}
+                </p>
+              </div>
+            ) : null}
           </div>
         </div>
         <div className="md right">
@@ -103,7 +139,43 @@ function Detail({ searchId, show }) {
               : null}
           </div>
           <div className="sm overviewDetail">
-            {detail ? detail.overview : null}
+            {detail ? (
+              <div className="sm">
+                {console.log(detail)}
+                {detail.tagline ? <h3>{detail.tagline}</h3> : null}
+                <i className="badge">{detail.adult ? "A" : "U/A"}</i>
+                {detail.genres
+                  ? detail.genres.map((a) => {
+                      return <span className="badge">{a.name}</span>;
+                    })
+                  : null}
+                {detail.vote_average ? (
+                  <i className="badge">⭐{detail.vote_average}</i>
+                ) : null}
+                <p className="about">{detail.overview}</p>
+                <hr />
+                <p>
+                  {detail.languages
+                    ? `Languages : ` +
+                      detail.languages.map((a) => {
+                        return " " + a;
+                      })
+                    : detail.original_language
+                    ? `Language : ` + detail.original_language
+                    : null}
+                </p>
+                <p>
+                  {detail.release_date
+                    ? `Release Date :      ` + detail.release_date
+                    : `First Aired On :    ` + detail.first_air_date}
+                </p>
+                <p>
+                  {detail.number_of_seasons
+                    ? `Number of Seasons : ` + detail.number_of_seasons
+                    : null}
+                </p>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

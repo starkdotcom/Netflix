@@ -11,6 +11,7 @@ import TvShows from "./Components/TvShows";
 import Movies from "./Components/Movies";
 import Footer from "./Components/Footer";
 import Result from "./Components/SearchResult/Result";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   const [videoId, setVideoId] = useState(null);
@@ -48,6 +49,7 @@ function App() {
     <div className="App">
       <AppContext.Provider value={providerValue}>
         <NavBar value={providerValue} />
+        <ScrollToTop />
         <Switch>
           <Route exact path="/tvshows">
             <TvShows />

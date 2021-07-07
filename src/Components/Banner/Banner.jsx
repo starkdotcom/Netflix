@@ -1,7 +1,7 @@
 import axios from "../../Axios";
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState, useContext } from "react";
-import { img500, trending } from "../../Config/constants";
+import { imgorg, trending } from "../../Config/constants";
 import { AppContext } from "../AppContext";
 import "./Banner.css";
 
@@ -33,7 +33,7 @@ function Banner() {
       className="banner"
       style={{
         backgroundImage: `url(${
-          movie.backdrop_path !== undefined ? img500 + movie.backdrop_path : ""
+          movie.backdrop_path !== undefined ? imgorg + movie.backdrop_path : ""
         })`,
       }}
     >

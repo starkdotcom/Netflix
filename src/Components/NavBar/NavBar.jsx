@@ -133,12 +133,14 @@ export default function NavBar() {
                       searchResult.orginal_title ||
                       searchResult.orginal_name}
                   </span>{" "}
-                  {searchResult.poster_path ? (
-                    <img
-                      src={`${img500 + searchResult.poster_path}`}
-                      alt={`${searchResult.name}`}
-                    />
-                  ) : null}
+                  <div>
+                    {searchResult.poster_path ? (
+                      <img
+                        src={`${img500 + searchResult.poster_path}`}
+                        alt={`${searchResult.name}`}
+                      />
+                    ) : null}
+                  </div>
                 </div>
               </div>
             </Link>

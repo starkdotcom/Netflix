@@ -277,13 +277,17 @@ button {
   color: black;
   font-size: 1.3rem;
 }
-.searchResult div img {
+.searchResult div div {
   margin: 10px;
   float: right;
   margin-right: 25px;
   height: 90px;
   width: auto;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10;
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 50%);
+}
+.searchResult div div img {
+  height: 90px;
+  width: auto;
 }
 .input-group,
 .form-outline,

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { img500 } from "../../Config/constants";
+import { img200 } from "../../Config/constants";
 import "./RowPost.css";
 import "./card.css";
 import { AppContext } from "../AppContext";
@@ -27,7 +27,7 @@ function Card({ obj, i, handleTrailer }) {
         >
           <img
             key={i}
-            src={obj.poster_path ? `${img500}${obj.poster_path}` : "logo2.png"}
+            src={obj.poster_path ? `${img200}${obj.poster_path}` : "logo2.png"}
             alt={name}
             className="poster"
           />
@@ -36,7 +36,7 @@ function Card({ obj, i, handleTrailer }) {
           style={{
             boxShadow: " 0 8px 32px 0 rgba(31, 38, 135, 0.37)",
             background: `url(${
-              obj.poster_path ? img500 + obj.poster_path : `logo2.png` //https://pngimg.com/uploads/netflix/netflix_PNG15.png`
+              obj.poster_path ? img200 + obj.poster_path : `logo2.png` //https://pngimg.com/uploads/netflix/netflix_PNG15.png`
             })  center center / contain`,
           }}
         >
