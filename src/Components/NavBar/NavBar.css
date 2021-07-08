@@ -16,6 +16,7 @@
 }
 ul {
   width: -webkit-fill-available;
+  width: -moz-available;
   list-style: none;
   display: flex;
   align-items: center;
@@ -257,10 +258,10 @@ button {
   border-radius: 0px 20px 0px 20px;
   width: 100%;
   height: auto;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.55);
   box-shadow: 0 8px 32px 0 rgba(220, 220, 228, 0.37);
   backdrop-filter: blur(12px);
-  --webkit-backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .searchResult div span {

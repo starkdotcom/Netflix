@@ -76,9 +76,40 @@
   margin-bottom: 10px;
   font-style: normal;
 }
-p.about {
+.md p.about {
+  margin-top: 10px;
+  max-height: 290px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.md p.about::-webkit-scrollbar {
+  display: none;
+}
+.btn.play {
+  display: none;
+}
+.imgBtn:hover > .btn.play {
+  display: block;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*background-image: url("playbtn.png");*/
+  background-size: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgb(202, 0, 0);
+  border-radius: 50%;
+  border: 0;
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+}
+.sm p.about {
   margin-top: 10px;
 }
+
 hr {
   height: 1px;
   background: azure;

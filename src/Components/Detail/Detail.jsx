@@ -4,9 +4,11 @@ import { AppContext } from "../AppContext";
 import axios from "../../Axios";
 import RowPost from "../RowPost/RowPost";
 import "./Detail.css";
+import { Video } from "./../Video";
 
 function Detail({ searchId, show }) {
-  const { detail, setDetail } = useContext(AppContext);
+  const { videoId, setVideoId, opts } = useContext(AppContext);
+  const { detail, setDetail, handleTrailer } = useContext(AppContext);
   useEffect(() => {
     if (detail === null || detail === undefined) {
       axios
@@ -38,6 +40,14 @@ function Detail({ searchId, show }) {
 
   return (
     <div className="detail">
+      {videoId !== null ? (
+        <Video
+          className=""
+          videoId={videoId}
+          setVideoId={setVideoId}
+          opts={opts}
+        />
+      ) : null}
       <div className="contentDetail">
         <div className="md left">
           <div
@@ -65,8 +75,12 @@ function Detail({ searchId, show }) {
                 {detail.tagline ? <h3>{detail.tagline}</h3> : null}
                 <i className="badge">{detail.adult ? "A" : "U/A"}</i>
                 {detail.genres
-                  ? detail.genres.map((a) => {
-                      return <span className="badge">{a.name}</span>;
+                  ? detail.genres.map((a, index) => {
+                      return (
+                        <span key={index} className="badge">
+                          {a.name}
+                        </span>
+                      );
                     })
                   : null}
                 {detail.vote_average ? (
@@ -100,12 +114,19 @@ function Detail({ searchId, show }) {
           </div>
         </div>
         <div className="md right">
-          <div>
+          <div className="imgBtn">
             <img
               className="posterImage md "
               src={detail ? img500 + detail.poster_path : null}
               alt=""
             />
+            <button
+              className="btn play"
+              onClick={() => {
+                let obj = detail.id;
+                handleTrailer(obj);
+              }}
+            ></button>
           </div>
         </div>
 
@@ -141,12 +162,15 @@ function Detail({ searchId, show }) {
           <div className="sm overviewDetail">
             {detail ? (
               <div className="sm">
-                {console.log(detail)}
                 {detail.tagline ? <h3>{detail.tagline}</h3> : null}
                 <i className="badge">{detail.adult ? "A" : "U/A"}</i>
                 {detail.genres
-                  ? detail.genres.map((a) => {
-                      return <span className="badge">{a.name}</span>;
+                  ? detail.genres.map((a, index) => {
+                      return (
+                        <span className="badge" key={index}>
+                          {a.name}
+                        </span>
+                      );
                     })
                   : null}
                 {detail.vote_average ? (

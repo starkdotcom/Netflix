@@ -7,6 +7,7 @@
   padding: 20px;
   overflow-x: scroll;
   overflow-y: hidden;
+  scrollbar-width: none;
 }
 h2.rowTitle {
   position: relative;

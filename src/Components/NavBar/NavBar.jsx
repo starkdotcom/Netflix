@@ -20,30 +20,30 @@ export default function NavBar() {
     searchResult.orginal_title ||
     searchResult.orginal_name;
   useEffect(() => {
-    dynamicSearch(setSearchResult);
-  }, [searchTerm]);
-  const dynamicSearch = (callback) => {
-    if (searchTerm !== "") {
-      axios
-        .get(searchUrl + `&query=${searchTerm}`)
-        .then((res, err) => {
-          if (res.data.results.length === 0) {
+    const dynamicSearch = (callback) => {
+      if (searchTerm !== "") {
+        axios
+          .get(searchUrl + `&query=${searchTerm}`)
+          .then((res, err) => {
+            if (res.data.results.length === 0) {
+              let term = { id: false };
+              callback(term);
+            } else {
+              let term = res.data.results[0];
+              callback(term);
+            }
+          })
+          .catch((err) => {
             let term = { id: false };
             callback(term);
-          } else {
-            let term = res.data.results[0];
-            callback(term);
-          }
-        })
-        .catch((err) => {
-          let term = { id: false };
-          callback(term);
-        });
-    } else {
-      let term = { id: false };
-      callback(term);
-    }
-  };
+          });
+      } else {
+        let term = { id: false };
+        callback(term);
+      }
+    };
+    dynamicSearch(setSearchResult);
+  }, [searchTerm]);
 
   const handleKeyEvent = (e) => {
     handleSubmit();
