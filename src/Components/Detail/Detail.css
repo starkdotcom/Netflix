@@ -101,7 +101,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: url("playbtn.png");
   background-size: 40px;
   background-position: center;
   background-repeat: no-repeat;
@@ -183,11 +182,7 @@ hr {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(
-      -50%,
-      -50%
-    ); /*
-    background-image: url("playbtn.png");*/
+    transform: translate(-50%, -50%);
     background-size: 40px;
     background-position: center;
     background-repeat: no-repeat;
