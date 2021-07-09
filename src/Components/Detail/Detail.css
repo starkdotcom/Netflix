@@ -47,9 +47,13 @@
 }
 
 .posterImage {
+  background-color: azure;
+  background-image: url("logo2.png");
+  background-size: cover;
+  background-position: center;
   height: 300px;
   margin: 10px;
-  width: auto;
+  width: 200px;
 }
 .postDetail {
   background-color: black;
@@ -88,20 +92,23 @@
 .btn.play {
   display: none;
 }
+.imgBtn:hover > .posterImage.md {
+  border: 1px solid whitesmoke;
+}
 .imgBtn:hover > .btn.play {
-  display: block;
-  text-align: center;
+  display: flex;
+  justify-content: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /*background-image: url("playbtn.png");*/
+  background-image: url("playbtn.png");
   background-size: 40px;
   background-position: center;
   background-repeat: no-repeat;
   background-color: rgb(202, 0, 0);
   border-radius: 50%;
-  border: 0;
+  border: 1px solid whitesmoke;
   font-size: 30px;
   height: 50px;
   width: 50px;
@@ -170,6 +177,27 @@ hr {
   }
   img.md.posterImage {
     display: none;
+  }
+  .btn.play {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(
+      -50%,
+      -50%
+    ); /*
+    background-image: url("playbtn.png");*/
+    background-size: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(202, 0, 0);
+    border-radius: 50%;
+    border: 0;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
   }
 }
 @media only screen and (max-width: 350px) {

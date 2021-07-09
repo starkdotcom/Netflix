@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { API_KEY, language, img500, searchUrl } from "../../Config/constants";
+import { API_KEY, language, img200, searchUrl } from "../../Config/constants";
 import { AppContext } from "../AppContext";
 import axios from "../../Axios";
 import RowPost from "../RowPost/RowPost";
@@ -117,7 +117,7 @@ function Detail({ searchId, show }) {
           <div className="imgBtn">
             <img
               className="posterImage md "
-              src={detail ? img500 + detail.poster_path : null}
+              src={detail ? img200 + detail.poster_path : "logo2.png"}
               alt=""
             />
             <button
@@ -126,17 +126,29 @@ function Detail({ searchId, show }) {
                 let obj = detail.id;
                 handleTrailer(obj);
               }}
-            ></button>
+            >
+              <img src="playbtn.png" alt="▶" width="30" height="30" />
+            </button>
           </div>
         </div>
 
         <div className="sm top">
-          <div>
+          <div className="imgBtn">
+            {detail ? console.log(detail.poster_path) : "not true"}
             <img
               className="sm posterImage"
-              src={detail ? img500 + detail.poster_path : null}
+              src={detail ? img200 + detail.poster_path : "logo2.png"}
               alt=""
             />
+            <button
+              className="btn play"
+              onClick={() => {
+                let obj = detail.id;
+                handleTrailer(obj);
+              }}
+            >
+              <img src="playbtn.png" alt="▶" width="30" height="30" />
+            </button>
           </div>
         </div>
         <div className="sm bottom">
