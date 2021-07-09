@@ -116,6 +116,7 @@ function Detail({ searchId, show }) {
         <div className="md right">
           <div className="imgBtn">
             <img
+              style={{ backgroundImage: `url(logo2.png)` }}
               className="posterImage md "
               src={detail ? img200 + detail.poster_path : "logo2.png"}
               alt=""
@@ -136,6 +137,7 @@ function Detail({ searchId, show }) {
           <div className="imgBtn">
             {detail ? console.log(detail.poster_path) : "not true"}
             <img
+              style={{ backgroundImage: `url(logo2.png)` }}
               className="sm posterImage"
               src={detail ? img200 + detail.poster_path : "logo2.png"}
               alt=""

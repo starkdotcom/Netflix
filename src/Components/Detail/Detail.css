@@ -48,7 +48,6 @@
 
 .posterImage {
   background-color: azure;
-  background-image: url("logo2.png");
   background-size: cover;
   background-position: center;
   height: 300px;
