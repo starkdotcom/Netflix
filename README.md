@@ -3,6 +3,6 @@
   <head></head/>
   <body>
   <h1>https://starkdotcom.github.io/Netflix/</h1>
-  <img src="public/shangchi.png" width="740" height="646" alt="Netflix Demo">
+  <img src="https://github.com/starkdotcom/Netflix/blob/master/public/shangchi.webp" width="940" height="600" alt="Netflix Demo">
   </body>
   </html>
